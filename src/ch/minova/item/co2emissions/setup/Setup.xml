@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup name="ch.minova.item.co2emissions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../../../../ch.minova.install/xsd/SetupProperties.xsd">
+	<required-modules>
+		<module name="ch.minova.i18n" major="10" minor="1045" patch="0"/>
+		<module name="ch.minova.images">
+			<version major="10" minor="49" patch="3"/>
+			<version major="11" minor="0" patch="0"/>
+		</module>
+		<module name="ch.minova.item" major="10"/>
+		<module name="ch.minova.data.schema" major="10" minor="316"/>
+	</required-modules>
+	<sql-code>
+		<script name="spReadItemCO2Emission" type="procedure"/>
+		<script name="spDeleteItemCO2Emission" type="procedure"/>
+		<script name="spInsertItemCO2Emission" type="procedure"/>
+		<script name="spUpdateItemCO2Emission" type="procedure"/>
+	</sql-code>
+	<xbs-code>
+		<node name="Item.xml">
+            <map/>
+            <node name="OptionPages">
+                <map/>
+                <node name="ItemCO2Emission.op.xml">
+                    <map>
+                        <entry key="Key0" value="KeyLong"/>
+                    </map>
+                </node>
+            </node>
+        </node>
+	</xbs-code>
+	<copy-file>
+		<filecopy filename="ItemCO2Emission.op.xml" todir="${application}"/>
+	</copy-file>
+</setup>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form icon="CO2Emission.ico" title="@tItem.Group.CO2Emission" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../../../ch.minova.install/src/ch/minova/install/xsd/XMLOptionPage.xsd">
+	<docbook>
+		<de>
+			<para xmlns="http://docbook.org/ns/docbook"/>
+		</de>
+		<en>
+			<para xmlns="http://docbook.org/ns/docbook"/>
+		</en>
+	</docbook>
+	<detail id="Detail" procedure-suffix="ItemCO2Emission">
+		<head>
+		<button enabled="true" icon="StartCO2Calculation.Command.ico" id="calculate" text="@Item.CalculateCO2Example">
+			</button>
+			<field key-type="primary" name="KeyLong" sql-index="0" visible="false">
+				<number/>
+			</field>
+			<field name="CalorificValueKG" number-columns-spanned="4" sql-index="1" text="@tItem.CalorificValue" unit-text="kWh/kg">
+				<number decimals="5"/>
+			</field>
+			<field name="CalorificValueT" number-columns-spanned="4" sql-index="2" text="@tItem.CalorificValue" unit-text="GJ/t">
+				<number decimals="5"/>
+			</field>
+			<field name="HeatingRelatedEmissionValueKG" number-columns-spanned="4" sql-index="3" text="@tItem.HeatingRelatedEmissionValue" unit-text="kg CO2/kWh">
+				<number decimals="5"/>
+			</field>
+			<field name="HeatingRelatedEmissionValueT" number-columns-spanned="4" read-only="true" sql-index="4" text="@tItem.HeatingRelatedEmissionValue" unit-text="t CO2/GJ">
+				<number decimals="5"/>
+			</field>
+			<field name="PriceCertificate" number-columns-spanned="4" sql-index="5" text="@tItem.PriceCertificate" unit-text="€/t CO2">
+				<money/>
+			</field>
+			<field name="ExampleQty" number-columns-spanned="4" sql-index="6" text="@tItem.ExampleQty">
+				<number/>
+			</field>
+			<field name="CalculatedEmissionOfDelivery" number-columns-spanned="4" sql-index="7" read-only="true" text="Brennstoffemis. d. Lieferung" unit-text="kg CO2">
+				<number decimals="3"/>
+			</field>
+			<field name="CalculatedPricePartCO2Costs" number-columns-spanned="4" sql-index="8" read-only="true" text="Bestandtei CO2 Kosten" unit-text="€">
+				<money/>
+			</field>
+			<field name="EnergyOfDelivery" number-columns-spanned="4" read-only="true" sql-index="9" text="Energiegehalt d. Lieferung" unit-text="kWh">
+				<number decimals="3"/>
+			</field>
+			<field name="EmissionActive" number-columns-spanned="4" sql-index="10" text="@Item.EmissionActive">
+				<boolean/>
+			</field>
+		</head>
+	</detail>
+	<events>
+		<onclick refid="calculate">
+			<procedure name="hpCalculateExampleItemCO2Emission">
+				<param field-name="KeyLong" type="INPUTOUTPUT"/>
+				<param field-name="CalorificValueKG" type="INPUTOUTPUT"/>
+				<param field-name="CalorificValueT" type="INPUTOUTPUT"/>
+				<param field-name="HeatingRelatedEmissionValueKG" type="INPUTOUTPUT"/>
+				<param field-name="HeatingRelatedEmissionValueT" type="INPUTOUTPUT"/>
+				<param field-name="PriceCertificate" type="INPUTOUTPUT"/>
+				<param field-name="ExampleQty" type="INPUTOUTPUT"/>
+				<param field-name="CalculatedEmissionOfDelivery" type="INPUTOUTPUT"/>
+				<param field-name="CalculatedPricePartCO2Costs" type="INPUTOUTPUT"/>
+				<param field-name="EnergyOfDelivery" type="INPUTOUTPUT"/>
+			</procedure>
+		</onclick>
+	</events>
+</form>
