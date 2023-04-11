@@ -1,4 +1,4 @@
-alter procedure dbo.spInsertItemCO2Emission(
+alter procedure dbo.opInsertItemCO2Emission(
 	@KeyLong int output,
 	@CalorificValueKG float, 
 	@CalorificValueT float,
@@ -9,24 +9,26 @@ alter procedure dbo.spInsertItemCO2Emission(
 	@CalculatedEmissionOfDelivery float, 
 	@CalculatedPricePartCO2Costs float,
 	@EnergyOfDelivery float,
-	@EmissionActive bit
+	@EmissionActive bit,
+	@UseGJ bit
 
 )
 with encryption as
 	declare @ReturnCode int
 	
-	exec updateItemCO2Emission 
+	exec opUpdateItemCO2Emission 
 				@KeyLong, 
 				@CalorificValueKG, 
 				@CalorificValueT,
 				@HeatingRelatedEmissionValueKG, 
 				@HeatingRelatedEmissionValueT,
-				@PriceCertificate money, 
+				@PriceCertificate, 
 				@ExampleQty,
 				@CalculatedEmissionOfDelivery, 
 				@CalculatedPricePartCO2Costs,
 				@EnergyOfDelivery,
-				@EmissionActive
+				@EmissionActive,
+				@UseGJ
 	
 	set @ReturnCode = 1
 

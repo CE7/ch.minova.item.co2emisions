@@ -3,18 +3,16 @@
 	xsi:noNamespaceSchemaLocation="../../../../../../../ch.minova.install/xsd/SetupProperties.xsd">
 	<required-modules>
 		<module name="ch.minova.i18n" major="10" minor="1045" patch="0"/>
-		<module name="ch.minova.images">
-			<version major="10" minor="49" patch="3"/>
-			<version major="11" minor="0" patch="0"/>
-		</module>
+		<module name="ch.minova.images" major="11" minor="86" patch="0"/>
 		<module name="ch.minova.item" major="10"/>
 		<module name="ch.minova.data.schema" major="10" minor="316"/>
 	</required-modules>
 	<sql-code>
-		<script name="spReadItemCO2Emission" type="procedure"/>
-		<script name="spDeleteItemCO2Emission" type="procedure"/>
-		<script name="spInsertItemCO2Emission" type="procedure"/>
-		<script name="spUpdateItemCO2Emission" type="procedure"/>
+		<script name="opReadItemCO2Emission" type="procedure"/>
+		<script name="opDeleteItemCO2Emission" type="procedure"/>
+		<script name="opInsertItemCO2Emission" type="procedure"/>
+		<script name="opUpdateItemCO2Emission" type="procedure"/>
+		<script name="hpCalculateExampleItemCO2Emission" type="procedure"/>
 	</sql-code>
 	<xbs-code>
 		<node name="Item.xml">

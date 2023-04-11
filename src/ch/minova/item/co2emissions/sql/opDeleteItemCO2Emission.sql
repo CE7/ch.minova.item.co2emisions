@@ -1,4 +1,4 @@
-alter procedure dbo.spDeleteItemCO2Emission (
+alter procedure dbo.opDeleteItemCO2Emission (
 	@KeyLong int
 )
 with encryption as

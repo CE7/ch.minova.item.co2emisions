@@ -11,40 +11,47 @@
 	</docbook>
 	<detail id="Detail" procedure-suffix="ItemCO2Emission">
 		<head>
-		<button enabled="true" icon="StartCO2Calculation.Command.ico" id="calculate" text="@Item.CalculateCO2Example">
+		<button enabled="true" icon="Calculate.Command.ico" id="calculate" text="@Item.CalculateCO2Example">
 			</button>
 			<field key-type="primary" name="KeyLong" sql-index="0" visible="false">
 				<number/>
 			</field>
-			<field name="CalorificValueKG" number-columns-spanned="4" sql-index="1" text="@tItem.CalorificValue" unit-text="kWh/kg">
-				<number decimals="5"/>
+			<field name="EmissionActive" number-columns-spanned="2" sql-index="10" text="@tItem.EmissionActive">
+				<boolean/>
 			</field>
-			<field name="CalorificValueT" number-columns-spanned="4" sql-index="2" text="@tItem.CalorificValue" unit-text="GJ/t">
-				<number decimals="5"/>
+			<field name="UseGJ" number-columns-spanned="2" sql-index="11" text="@tItem.UseGJ">
+				<boolean/>
 			</field>
-			<field name="HeatingRelatedEmissionValueKG" number-columns-spanned="4" sql-index="3" text="@tItem.HeatingRelatedEmissionValue" unit-text="kg CO2/kWh">
+			<field name="CalorificValueKG" number-columns-spanned="2" sql-index="1" text="@tItem.CalorificValue" unit-text="kWh/kg">
 				<number decimals="5"/>
+				<dynamic property="read-only">UseGJ!=0</dynamic>
 			</field>
-			<field name="HeatingRelatedEmissionValueT" number-columns-spanned="4" read-only="true" sql-index="4" text="@tItem.HeatingRelatedEmissionValue" unit-text="t CO2/GJ">
+			<field name="CalorificValueT" number-columns-spanned="2" sql-index="2" text="@tItem.CalorificValue" unit-text="GJ/t">
 				<number decimals="5"/>
+				<dynamic property="read-only">UseGJ==0</dynamic>
 			</field>
-			<field name="PriceCertificate" number-columns-spanned="4" sql-index="5" text="@tItem.PriceCertificate" unit-text="€/t CO2">
+			<field name="HeatingRelatedEmissionValueKG" number-columns-spanned="2" sql-index="3" text="@tItem.HeatingRelatedEmissionValue" unit-text="kgCO²/kWh">
+				<number decimals="5"/>
+				<dynamic property="read-only">UseGJ!=0</dynamic>
+			</field>
+			<field name="HeatingRelatedEmissionValueT" number-columns-spanned="2" sql-index="4" text="@tItem.HeatingRelatedEmissionValue" unit-text="tCO²/GJ">
+				<number decimals="5"/>
+				<dynamic property="read-only">UseGJ==0</dynamic>
+			</field>
+			<field name="PriceCertificate" number-columns-spanned="4" sql-index="5" text="@tItem.PriceCertificate" unit-text="€/tCO²">
 				<money/>
 			</field>
-			<field name="ExampleQty" number-columns-spanned="4" sql-index="6" text="@tItem.ExampleQty">
+			<field name="ExampleQty" number-columns-spanned="4" sql-index="6" text="@tItem.ExampleQty" unit-text="@unit.StandardVolume">
 				<number/>
 			</field>
-			<field name="CalculatedEmissionOfDelivery" number-columns-spanned="4" sql-index="7" read-only="true" text="Brennstoffemis. d. Lieferung" unit-text="kg CO2">
+			<field name="CalculatedEmissionOfDelivery" number-columns-spanned="4" sql-index="7" read-only="true" text="@Item.CalculatedEmissionOfDelivery" unit-text="kgC0²">
 				<number decimals="3"/>
 			</field>
-			<field name="CalculatedPricePartCO2Costs" number-columns-spanned="4" sql-index="8" read-only="true" text="Bestandtei CO2 Kosten" unit-text="€">
+			<field name="CalculatedPricePartCO2Costs" number-columns-spanned="4" sql-index="8" read-only="true" text="@Item.CalculatedPricePartCO2Costs" unit-text="€">
 				<money/>
 			</field>
-			<field name="EnergyOfDelivery" number-columns-spanned="4" read-only="true" sql-index="9" text="Energiegehalt d. Lieferung" unit-text="kWh">
+			<field name="EnergyOfDelivery" number-columns-spanned="4" read-only="true" sql-index="9" text="@Item.EnergyOfDelivery" unit-text="kWh">
 				<number decimals="3"/>
-			</field>
-			<field name="EmissionActive" number-columns-spanned="4" sql-index="10" text="@Item.EmissionActive">
-				<boolean/>
 			</field>
 		</head>
 	</detail>
@@ -61,6 +68,7 @@
 				<param field-name="CalculatedEmissionOfDelivery" type="INPUTOUTPUT"/>
 				<param field-name="CalculatedPricePartCO2Costs" type="INPUTOUTPUT"/>
 				<param field-name="EnergyOfDelivery" type="INPUTOUTPUT"/>
+				<param field-name="UseGJ" type="INPUTOUTPUT"/>
 			</procedure>
 		</onclick>
 	</events>

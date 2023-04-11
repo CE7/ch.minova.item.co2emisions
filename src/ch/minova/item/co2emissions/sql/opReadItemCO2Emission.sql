@@ -1,4 +1,4 @@
-alter procedure dbo.spReadItemCO2Emission (
+alter procedure dbo.opReadItemCO2Emission (
 	@KeyLong int output,
 	@CalorificValueKG float output, 
 	@CalorificValueT float output,
@@ -9,7 +9,8 @@ alter procedure dbo.spReadItemCO2Emission (
 	@CalculatedEmissionOfDelivery float output, 
 	@CalculatedPricePartCO2Costs float output,
 	@EnergyOfDelivery float output,
-	@EmissionActive bit output
+	@EmissionActive bit output,
+	@UseGJ bit output
 )
 with encryption as
 	declare @ReturnCode int
@@ -26,7 +27,8 @@ with encryption as
 		@HeatingRelatedEmissionValueKG = HeatingRelatedEmissionValueKG,
 		@HeatingRelatedEmissionValueT = HeatingRelatedEmissionValueT,
 		@PriceCertificate = PriceCertificate,
-		@EmissionActive = EmissionActive
+		@EmissionActive = EmissionActive,
+		@UseGJ = UseGJ
 	from tItem where Keylong = @KeyLong
 
 	
