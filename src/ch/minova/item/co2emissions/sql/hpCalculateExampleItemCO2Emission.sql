@@ -51,7 +51,7 @@ with encryption as
 	set @CalculatedEmissionOfDelivery = Round(@CalorificValueT * @HeatingRelatedEmissionValueT * @Density * @ExampleQty, 3)
 	
 	-- Preisbestandteil CO2-Kosten (inklusive der Mehrwertsteuer)
-	set @CalculatedPricePartCO2Costs = ROUND(@CalculatedEmissionOfDelivery * @PriceCertificate * 1.19,3)
+	set @CalculatedPricePartCO2Costs = ROUND(@CalculatedEmissionOfDelivery * @PriceCertificate / 1000 * 1.19,3)
 	
 	-- Energiegehalt der Lieferung
 	set @EnergyOfDelivery = ROUND(@CalorificValueT * @Density * @ExampleQty, 3)

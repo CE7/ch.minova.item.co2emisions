@@ -27,12 +27,12 @@
 		<dependency>
 			<groupId>ch.minova</groupId>
 			<artifactId>ch.minova.data.schema</artifactId>
-			<version>10.178.0</version>
+			<version>10.377.0</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.minova</groupId>
 			<artifactId>ch.minova.item</artifactId>
-			<version>10.0.0</version>
+			<version>10.10.1</version>
 		</dependency>
 	</dependencies>
 </project>
