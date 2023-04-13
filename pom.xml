@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>ch.minova</groupId>
 			<artifactId>ch.minova.i18n</artifactId>
-			<version>10.1045.0</version>
+			<version>10.1160.0</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.minova</groupId>

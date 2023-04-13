@@ -2,7 +2,7 @@
 <setup name="ch.minova.item.co2emissions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="../../../../../../../ch.minova.install/xsd/SetupProperties.xsd">
 	<required-modules>
-		<module name="ch.minova.i18n" major="10" minor="1045" patch="0"/>
+		<module name="ch.minova.i18n" major="10" minor="1160" patch="0"/>
 		<module name="ch.minova.images" major="11" minor="86" patch="0"/>
 		<module name="ch.minova.item" major="10"/>
 		<module name="ch.minova.data.schema" major="10" minor="316"/>
