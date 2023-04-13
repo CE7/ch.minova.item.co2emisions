@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>ch.minova</groupId>
 			<artifactId>ch.minova.data.schema</artifactId>
-			<version>10.377.0</version>
+			<version>10.378.0</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.minova</groupId>
